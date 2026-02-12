@@ -15,7 +15,7 @@ from app.services.chatbot_service import generate_chat_response, get_chat_histor
 router = APIRouter()
 
 
-@router.post("/", response_model=ChatResponse)
+@router.post("", response_model=ChatResponse)
 async def chat(
     data: ChatRequest,
     request: Request,

@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.database import get_db
 from app.dependencies import get_current_user, get_client_ip
 from app.models.user import User
-from app.schemas.user import UserCreate, UserResponse
+from app.schemas.user import UserCreate, UserResponse, UserLogin
 from app.schemas.auth import (
     TokenResponse,
     RefreshTokenRequest,
@@ -54,7 +54,7 @@ async def register(
 
 @router.post("/login", response_model=TokenResponse | MFASetupResponse)
 async def login(
-    user_data: UserCreate,
+    user_data: UserLogin,
     request: Request,
     db: AsyncSession = Depends(get_db)
 ):

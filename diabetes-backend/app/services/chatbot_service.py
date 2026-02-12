@@ -160,6 +160,9 @@ async def generate_chat_response(
     )
     db.add(audit)
     
+    await db.commit()
+    await db.refresh(chat)
+    
     return chat
 
 

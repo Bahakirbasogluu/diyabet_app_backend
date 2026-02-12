@@ -22,6 +22,7 @@ class HealthRecordType(str, PyEnum):
     INSULIN = "INSULIN"  # İnsülin dozu (ünite)
     CARBS = "CARBS"  # Karbonhidrat alımı (gram)
     EXERCISE = "EXERCISE"  # Egzersiz süresi (dakika)
+    HEART_RATE = "HEART_RATE"  # Nabız (bpm)
 
 
 class HealthRecord(Base):
@@ -55,6 +56,7 @@ class HealthRecord(Base):
             HealthRecordType.HBA1C: "%",
             HealthRecordType.INSULIN: "ünite",
             HealthRecordType.CARBS: "g",
-            HealthRecordType.EXERCISE: "dakika"
+            HealthRecordType.EXERCISE: "dakika",
+            HealthRecordType.HEART_RATE: "bpm"
         }
         return units.get(record_type, "")

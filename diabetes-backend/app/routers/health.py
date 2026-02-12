@@ -30,7 +30,7 @@ from app.services.health_service import (
 router = APIRouter()
 
 
-@router.post("/", response_model=HealthRecordResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=HealthRecordResponse, status_code=status.HTTP_201_CREATED)
 async def add_health_record(
     data: HealthRecordCreate,
     request: Request,
